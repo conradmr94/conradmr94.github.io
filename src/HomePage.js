@@ -227,7 +227,7 @@ const HomePage = ({ name }) => {
         <a href="https://github.com/conradmr94" target="_blank" rel="noopener noreferrer">
           <FaGithub size={30} />
         </a>
-        <a href="https://www.linkedin.com/in/conradmr94/" target="_blank" rel="noopener noreferrer">
+        <a href="https://www.linkedin.com/in/matthew-r-conrad" target="_blank" rel="noopener noreferrer">
           <FaLinkedin size={30} />
         </a>
         <a href="mailto:matthew.r.conrad1@gmail.com">
