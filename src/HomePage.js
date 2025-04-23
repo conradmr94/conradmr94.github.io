@@ -40,6 +40,25 @@ const HomePage = ({ name }) => {
         <h2><FaCode /> Coding</h2>
         <div className="card">
           <ul className="experience-list">
+            <li>
+              <strong>
+                <a href="https://github.com/conradmr94/orderbook.git" target="_blank" rel="noopener noreferrer">
+                  Order Book
+                </a>
+              </strong>: A lightweight C++ implementation of an order book system supporting basic order types and matching logic. 
+              Designed to simulate core trading mechanisms like placing orders, cancelling them, and executing trades through matching buy/sell pairs. 
+              <br />
+              <strong>Technologies:</strong> C++17
+            </li> 
+            <li>
+              <strong>
+                <a href="https://github.com/conradmr94/TradingEngineServer.git" target="_blank" rel="noopener noreferrer">
+                  Trading Engine Server
+                </a>
+              </strong>: A skeleton of a stock trading engine server, written in C# using .NET. 
+              <br />
+              <strong>Technologies:</strong> C#, .NET
+            </li>
 
             <li>
               <strong>
