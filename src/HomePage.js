@@ -1,257 +1,193 @@
 // src/HomePage.js
 import React from 'react';
-import { FaGithub, FaLinkedin, FaEnvelope, FaCode, FaCamera, FaFileAlt, FaUniversity, FaAward, FaBriefcase, FaCogs, FaPenNib } from 'react-icons/fa';
-import { MdSecurity } from 'react-icons/md';
+import { FaGithub, FaLinkedin, FaEnvelope, FaFileAlt } from 'react-icons/fa';
 import './HomePage.css';
 
-const HomePage = ({ name }) => {
+const HomePage = () => {
   return (
-    <div className="resume-container">
-      {/* Header Section */}
-      <header className="resume-header">
-        <h1>Hello, {name}!</h1>
-        <p>Welcome to my portfolio. Scroll down to learn more!</p>
+    <div className="portfolio-root">
+      {/* Header / Hero */}
+      <header className="hero">
+        <h1>Matthew R. Conrad</h1>
+        <p className="hero-tagline">Software Engineer & Researcher | Finance, ML, Security</p>
+        <div className="hero-links">
+          <a href="mailto:mconrad35@gatech.edu" title="Email"><FaEnvelope size={24} /></a>
+          <a href="https://www.linkedin.com/in/matthew-r-conrad" target="_blank" rel="noopener noreferrer" title="LinkedIn"><FaLinkedin size={24} /></a>
+          <a href="https://github.com/conradmr94" target="_blank" rel="noopener noreferrer" title="GitHub"><FaGithub size={24} /></a>
+          <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" title="Resume"><FaFileAlt size={24} /></a>
+        </div>
       </header>
 
-      {/* About Me Section */}
-      <section className="resume-section">
-        <h2>About Me</h2>
-        <div className="card">
-          <p>
-            I'm Matt, and I'm a Principal Computer Systems Architect at Northrop Grumman and U.S. Marine Corps veteran.
-            I earned a Bachelor of Science in Computer Science from the University of Michigan in 2024,
-            and I'm currently pursuing a Master of Science in Computer Science from Georgia Tech.
-          </p>
-
-          <p>
-            I am a published machine learning researcher proficient in a variety of coding languages and frameworks including C, C++, Python, Django, and Shell and PowerShell scripting.
-            I am also experienced with Cisco routing and switching technology and security operations.
-          </p>
-
-          <p>
-            Outside of work, I enjoy exploring, jogging, backpacking, reading everything worth reading, and trying my own hand at writing.
-          </p>
-        </div>
-      </section>
-
-
-      {/* Coding Section */}
-      <section className="resume-section">
-        <h2><FaCode /> Coding</h2>
-        <div className="card">
-          <ul className="experience-list">
-            <li>
-              <strong>
-                <a href="https://github.com/conradmr94/orderbook.git" target="_blank" rel="noopener noreferrer">
-                  Order Book
-                </a>
-              </strong>: A lightweight C++ implementation of an order book system supporting basic order types and matching logic. 
-              Designed to simulate core trading mechanisms like placing orders, cancelling them, and executing trades through matching buy/sell pairs. 
-              <br />
-              <strong>Technologies:</strong> C++17
-            </li> 
-            <li>
-              <strong>
-                <a href="https://github.com/conradmr94/TradingEngineServer.git" target="_blank" rel="noopener noreferrer">
-                  Trading Engine Server
-                </a>
-              </strong>: A skeleton of a stock trading engine server, written in C# using .NET. 
-              <br />
-              <strong>Technologies:</strong> C#, .NET
-            </li>
-
-            <li>
-              <strong>
-                <a href="https://github.com/conradmr94/portfolio_calculator.git" target="_blank" rel="noopener noreferrer">
-                  Stock Portfolio Calculator
-                </a>
-              </strong>: A calculator app to generate buy lists and portfolio distributions given a target purchase volume.
-              This project is in progress.
-              <br />
-              <strong>Technologies:</strong> Python, Flask, Pandas, HTML, CSS
-            </li>
-
-            <li>
-              <strong>Example-Based Machine Learning Explanations</strong>: A method for explaining the behavior of convolutional neural networks (CNN)
-              by showing users examples of inputs and outputs. This project is ongoing and pending submission/approval by the University of Michigan Innovation Partnership.
-              <br />
-              <strong>Technologies:</strong> Python, Keras, Django, HTML, CSS
-            </li>
-
-            <li>
-              <strong>My Portfolio</strong>: That's where you are right now! Of course, this site is a living document. 
-              <br />
-              <strong>Technologies:</strong> React, Node.js, JavaScript, HTML, CSS
-            </li>
-
+      {/* Featured Project */}
+      <section className="featured-project">
+        <h2>Featured Project: Machine Learning-Driven Trading Simulator</h2>
+        <div className="project-card">
+          <p><strong>Technologies:</strong> Python, Ensemble Learners, Pandas, NumPy</p>
+          <ul>
+            <li>Engineered a portfolio backtester and strategy learner to simulate equity trading with realistic constraints (impact, commission).</li>
+            <li>Implemented Q-Learning and ensemble random tree learners to model adaptive trading policies.</li>
+            <li>Outperformed benchmark with cumulative return 70% vs. 0.01 and Sharpe ratio 1.61 vs. 0.25.</li>
+            <li>Conducted experiments across three market periods to evaluate strategy robustness and cost sensitivity.</li>
+            <li>Analyzed the relationship between market impact and trade frequency.</li>
           </ul>
         </div>
       </section>
 
-
-      {/* Writing Section */}
-      <section className="resume-section">
-        <h2><FaPenNib /> Writing</h2>
-        <div className="card">
-        <h3>Published Research</h3>
-        <p>
-          <em>Interpretability Gone Bad: The Role of Bounded Rationality in How Practitioners Understand Machine Learning</em><br />
-          Harmanpreet Kaur, <strong>Matthew R. Conrad</strong>, Davis Rule, Cliff Lampe, and Eric Gilbert<br />
-          Proc. ACM Hum.-Comput. Interact., April 2024<br />
-          <a href="/Interpretability_Gone_Bad.pdf" target="_blank" rel="noopener noreferrer">
-            DOI: 10.1145/3637354 (View PDF)
-          </a>
-        </p>
+      {/* Other Projects */}
+      <section className="projects">
+        <h2>Other Projects</h2>
+        <div className="project-list">
+          <div className="project-card">
+            <h3>Stock Price Movement Prediction</h3>
+            <p><strong>Technologies:</strong> SVM, KRR, PCA</p>
+            <ul>
+              <li>Built classification models using SVMs and KRR, achieving F1-score of 0.80 on out-of-sample data.</li>
+              <li>Applied unsupervised learning (K-Means) to cluster equities into 30+ distinct behavioral segments.</li>
+              <li>Conducted principal component analysis (PCA), variance inflation factor (VIF), and Augmented Dickey-Fuller (ADF) testing.</li>
+            </ul>
+          </div>
+          <div className="project-card">
+            <h3>Market Simulator</h3>
+            <p><strong>Technologies:</strong> Python, Pandas, NumPy</p>
+            <ul>
+              <li>Built a realistic market simulator to model equity portfolio performance over time from executed trade orders.</li>
+              <li>Implemented logic for cash management, transaction costs, and market impact to evaluate strategy robustness.</li>
+              <li>Developed vectorized pipeline for computing portfolio value, daily returns, Sharpe ratio, and cumulative return.</li>
+            </ul>
+          </div>
+          <div className="project-card">
+            <h3>Q-Learning/Dyna-Q Agent</h3>
+            <p><strong>Technologies:</strong> Python, Reinforcement Learning, Q-Learning, Dyna-Q</p>
+            <ul>
+              <li>Implemented a tabular Q-learning agent with support for Dyna-Q planning and ε-greedy action selection.</li>
+              <li>Designed reinforcement learning update rules using Bellman equations to estimate state–action values.</li>
+              <li>Used as a learning component in a broader ML4T trading strategy system to improve long-term returns.</li>
+            </ul>
+          </div>
+          <div className="project-card">
+            <h3>Martingale Strategy Simulator</h3>
+            <p><strong>Technologies:</strong> Python, NumPy, Matplotlib</p>
+            <ul>
+              <li>Implemented Monte Carlo simulations of the Martingale betting strategy under various constraints (bankroll limits, timeouts).</li>
+              <li>Analyzed risk, variance, and success rates across 1,000+ episodes using statistical metrics and graphical summaries.</li>
+            </ul>
+          </div>
         </div>
       </section>
 
-      {/* Resume Section - Now Includes Full Content */}
-      <section className="resume-section">
-        <h2><FaFileAlt /> Resume</h2>
-
-        {/* Resume Download Link */}
-        <p>
-          <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">
-            📄 My Resume (PDF)
-          </a>
-        </p>
-
-        {/* Education */}
-        <div className="card">
-          <h3><FaUniversity /> Education</h3>
-          <p><strong>Master of Science in Computer Science (Machine Learning)</strong> - Georgia Institute of Technology (In Progress)</p>
-          <p><strong>Bachelor of Science in Computer Science</strong> - University of Michigan (May 2024) | GPA: 3.6</p>
-        </div>
-
-        {/* Certifications */}
-        <div className="card">
-          <h3><MdSecurity /> Certifications</h3>
-          <p>CompTIA Security+ (expires 9/2025)</p>
-          <p>CompTIA A+ (expires 9/2025)</p>
-        </div>
-
-        {/* Experience */}
-        <div className="card">
-          <h3><FaBriefcase /> Work Experience</h3>
-          
-          <h4>Principal Computer Systems Architect - Northrop Grumman</h4>
-          <p>Los Angeles, CA | 7/2024 - Present</p>
-          <ul className="experience-list">
-            <li>Completed upgrades on 100+ Cisco enterprise switches and routers with less than 1ms downtime.</li>
-            <li>Managed data center infrastructure using multicast, vPC, HSRP, and Layer 3 switching and routing.</li>
-            <li>Configured and deployed VoIP servers and 120+ client devices across multiple locations.</li>
-            <li>Developed cybersecurity hardening policies for Linux and Windows devices.</li>
-            <li>Installed, configured, and deployed Red Hat Enterprise Linux servers.</li>
-          </ul>
-
-          <h4>Research Assistant - University of Michigan</h4>
-          <p>Ann Arbor, MI | 10/2021 - Present</p>
-          <ul className="experience-list">
-            <li>Principal investigator of project focusing on example-based machine learning explanations in the Computational Human-Computer Interaction Lab.</li>
-            <li>Developed question-generation algorithms to explain machine learning models using Python.</li>
-            <li>Second author of <a href="/Interpretability_Gone_Bad.pdf" target="_blank" rel="noopener noreferrer"><em>Interpretability Gone Bad: The Role of Bounded Rationality in How Practitioners Understand Machine Learning</em></a>.</li>
-            <li>Conducted behavioral economic analysis on ML interpretability through interviews and survey experiments.</li>
-            <li>Performed dataset analysis using Generative Additive Models (GAMs) and SHAP explanations.</li>
-          </ul>
-
-          <h4>Computer Consultant - University of Michigan</h4>
-          <p>Ann Arbor, MI | 9/2021 - 8/2022</p>
-          <ul className="experience-list">
-            <li>Provided on-site technical support for PC, Mac, and mobile device users.</li>
-            <li>Ensured compliance with university regulations regarding network security.</li>
-            <li>Conducted employee onboarding training for 30+ faculty and staff.</li>
-          </ul>
-
-          <h4>Information Technology Analyst - Seifert Technologies Inc.</h4>
-          <p>Massillon, OH | 2/2021 - 6/2021</p>
-          <ul className="experience-list">
-            <li>Developed Microsoft Power BI solutions for inventory, shipping, and billing analytics.</li>
-            <li>Provided remote and on-site technical support for Microsoft Office and Power BI.</li>
-            <li>Performed server and data backup maintenance and verification.</li>
-          </ul>
-
-          <h4>Active Duty Marine - U.S. Marine Corps</h4>
-          <p>Various Locations | 8/2012 - 1/2021</p>
-          <ul className="experience-list">
-            <li>Planned and executed the first Marine Corps supply chain risk assessment for the F-35 Lightning II.</li>
-            <li>Led counterintelligence operations across multiple global deployments.</li>
-            <li>Provided intelligence support for Marine Aircraft Group 12 in Japan.</li>
-            <li>Implemented secure network architectures across five remote operations centers.</li>
-            <li>Trained 750+ Marines and sailors on cybersecurity and counterintelligence principles.</li>
-          </ul>
-        </div>
-
-        {/* Skills */}
-        <div className="card">
-          <h3><FaCogs /> Skills</h3>
-
-          <h4>Programming & Software Development</h4>
-          <div className="skills-flexbox">
-            <span className="skill-item">C</span>
-            <span className="skill-item">C++</span>
-            <span className="skill-item">Python</span>
-            <span className="skill-item">Django</span>
-            <span className="skill-item">Object-Oriented Programming</span>
-            <span className="skill-item">Algorithm Design</span>
-            <span className="skill-item">Computer Vision</span>
-            <span className="skill-item">Statistical Methods</span>
-          </div>
-
-          <h4>Networking & System Administration</h4>
-          <div className="skills-flexbox">
-            <span className="skill-item">VoIP Management</span>
-            <span className="skill-item">Routing</span>
-            <span className="skill-item">Switching</span>
-            <span className="skill-item">Cyber Security</span>
-            <span className="skill-item">Linux</span>
-            <span className="skill-item">Red Hat Enterprise Linux</span>
-            <span className="skill-item">Server Management</span>
-          </div>
-
-          <h4>Leadership & Communication</h4>
-          <div className="skills-flexbox">
-            <span className="skill-item">Leadership</span>
-            <span className="skill-item">Project Management</span>
-            <span className="skill-item">Team Building</span>
-            <span className="skill-item">Presentation</span>
-            <span className="skill-item">Communication</span>
-            <span className="skill-item">Problem Solving</span>
-          </div>
-
-          <h4>Intelligence & Security</h4>
-          <div className="skills-flexbox">
-            <span className="skill-item">Counterintelligence / Human Intelligence Operations</span>
-            <span className="skill-item">Intelligence Operations Planning</span>
-            <span className="skill-item">Intelligence Reporting</span>
-          </div>
-        </div>
-
-
-        {/* Awards */}
-        <div className="card">
-          <h3><FaAward /> Awards</h3>
-          <p>Navy and Marine Corps Commendation Medal (2020)</p>
-          <p>Navy and Marine Corps Achievement Medal (2016, 2018)</p>
-        </div>
-
-        {/* Security Clearance */}
-        <div className="card">
-          <h3><MdSecurity /> Security Clearance</h3>
-          <p>TS/SCI with CI-scope polygraph</p>
+      {/* Skills */}
+      <section className="skills">
+        <h2>Skills</h2>
+        <div className="skills-groups">
+          <div><strong>Languages:</strong> Python, C++, JavaScript, SQL, Bash</div>
+          <div><strong>Frameworks & Tools:</strong> PyTorch, TensorFlow, Flask, React, Docker, Fireblocks, Postgres, Pandas, NumPy, Scikit-learn, Power BI</div>
+          <div><strong>Techniques:</strong> Reinforcement Learning, Ensemble Methods, Time Series Analysis, Explainability (SHAP/GAM), Q-Learning, Dyna-Q, Clustering, Statistical Modeling, Kernel Methods</div>
+          <div><strong>Infrastructure:</strong> AWS Bedrock, Docker, Hybrid Networking (VoIP, L2/L3), Linux/Windows Server Management, Secure System Design</div>
+          <div><strong>Security:</strong> Cyber Threat Analysis, Multi-Party Computation (MPC), Smart Contract Custody, Incident Response, Zero-Downtime Patching</div>
         </div>
       </section>
 
-      {/* Footer Section */}
+      {/* Experience */}
+      <section className="experience">
+        <h2>Experience</h2>
+        <div className="exp-list">
+          <div className="exp-card">
+            <h3>Software Engineer, Web3 Trading Infrastructure</h3>
+            <div className="exp-meta">Concord Systems Corp. | New York, NY, Remote | Jun 2025 – Present</div>
+            <ul>
+              <li>Engineered Fireblocks MPC-based transaction approval into production OTC trading systems.</li>
+              <li>Designed flexible trade execution logic supporting both atomic and non-atomic trade flows.</li>
+              <li>Built and deployed backend services for transaction signing, order routing, and database migrations.</li>
+              <li>Strengthened security and consistency across trading flows through multi-party coordination protocols.</li>
+              <li>Skills: Distributed Systems, Smart Contract Custody, Python, Web3, Postgres</li>
+            </ul>
+          </div>
+          <div className="exp-card">
+            <h3>Principal Computer Systems Architect</h3>
+            <div className="exp-meta">Northrop Grumman | Los Angeles, CA | Apr 2023 – Present</div>
+            <ul>
+              <li>Designed and deployed scalable Layer 2/3 networking systems supporting real-time data processing and sub-millisecond failover.</li>
+              <li>Built and automated inventory systems (MySQL, MS Access) tracking over $1M in infrastructure assets.</li>
+              <li>Engineered and secured hybrid compute environments (Linux, Windows) to support containerized applications and data pipelines.</li>
+              <li>Deployed and monitored VoIP infrastructure enabling secure communication between distributed systems.</li>
+              <li>Led patching, compliance hardening, and zero-downtime update cycles across 500+ nodes in mission-critical networks.</li>
+              <li>Collaborated cross-functionally to debug and optimize system throughput, aligning networking and software stack performance.</li>
+            </ul>
+          </div>
+          <div className="exp-card">
+            <h3>Machine Learning Researcher</h3>
+            <div className="exp-meta">University of Michigan | Ann Arbor, MI | Oct 2021 – Present</div>
+            <ul>
+              <li>Conducted deep learning research applying CNNs using Keras to study model trust, interpretability, and failure modes.</li>
+              <li>Co-authored CSCW 2024 and CHI 2026 papers on cognitive biases and contrastive explanations in AI model evaluation.</li>
+              <li>Developed and evaluated a quiz-based active learning framework to improve user understanding of AI limitations via contrastive example selection.</li>
+              <li>Designed end-to-end pipelines for automated selection of model failure cases using statistical similarity (SIFT, clustering) and human-meaningful contrastive pairs.</li>
+              <li>Applied SHAP, GAMs, and regression analysis to connect model predictions with behavioral outcomes in user studies (N=400+).</li>
+              <li>Led experimental design, IRB approval, and full deployment of a cross-sectional study measuring AI literacy outcomes.</li>
+            </ul>
+          </div>
+          <div className="exp-card">
+            <h3>Information Technology Analyst</h3>
+            <div className="exp-meta">Seifert Technologies Inc. | Massillon, OH | Feb 2021 – Jun 2021</div>
+            <ul>
+              <li>Built Power BI dashboards (DAX) for analytics across logistics, billing, and production cycles.</li>
+              <li>Supported ERP systems, Microsoft 365, and remote IT infrastructure in a client-facing support role.</li>
+              <li>Automated backup verification and streamlined invoicing workflows via QuickBooks APIs.</li>
+            </ul>
+          </div>
+          <div className="exp-card">
+            <h3>Counterintelligence Agent, Team Chief, Cyber Network Operator</h3>
+            <div className="exp-meta">United States Marine Corps | Various Locations | Aug 2012 – Jan 2021</div>
+            <ul>
+              <li>Directed cyber threat assessments and incident response protocols for sensitive operations, including the F-35 program.</li>
+              <li>Conducted HUMINT and SIGINT operations; contributed to secure information systems across Indo-Pacific deployments.</li>
+              <li>Designed remote operational networks, integrating encryption and secure routing for joint-force communication.</li>
+              <li>Led 40+ briefings on information security and network defense; trained 750+ personnel in threat awareness.</li>
+              <li>Managed SIPRNet services for 1,500+ users, resolving infrastructure and access control issues in high-security zones.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      {/* Education & Certifications */}
+      <section className="education-certs">
+        <h2>Education & Certifications</h2>
+        <div className="edu-list">
+          <div className="edu-card">
+            <h3>Georgia Institute of Technology</h3>
+            <div className="edu-meta">Master of Science in Computer Science (Machine Learning) | In Progress | GPA: 4.0/4.0</div>
+          </div>
+          <div className="edu-card">
+            <h3>University of Michigan</h3>
+            <div className="edu-meta">Bachelor of Science in Computer Science | Aug 2021 – May 2024 | GPA: 3.6/4.0</div>
+          </div>
+        </div>
+        <div className="certs-list">
+          <div className="cert-card">CompTIA Security+ (exp. 9/2028)</div>
+          <div className="cert-card">CompTIA A+ (exp. 9/2028)</div>
+        </div>
+      </section>
+
+      {/* Publications */}
+      <section className="publications">
+        <h2>Selected Publications</h2>
+        <div className="pub-card">
+          Harmanpreet Kaur, <strong>Matthew R. Conrad</strong>, et al. 2024. "Interpretability Gone Bad: The Role of Bounded Rationality in How Practitioners Understand Machine Learning." <a href="https://doi.org/10.1145/3637354" target="_blank" rel="noopener noreferrer">Proc. ACM HCI, 2024</a>.
+        </div>
+      </section>
+
+      {/* Other / Awards / Clearance */}
+      <section className="other">
+        <h2>Other</h2>
+        <div className="other-list">
+          <div className="other-card"><strong>Security Clearance:</strong> TS/SCI with CI-scope polygraph</div>
+          <div className="other-card"><strong>Awards:</strong> Navy & Marine Corps Commendation Medal (2020), Navy & Marine Corps Achievement Medal (2016, 2018)</div>
+        </div>
+      </section>
+
+      {/* Footer */}
       <footer className="footer">
-        <a href="https://github.com/conradmr94" target="_blank" rel="noopener noreferrer">
-          <FaGithub size={30} />
-        </a>
-        <a href="https://www.linkedin.com/in/matthew-r-conrad" target="_blank" rel="noopener noreferrer">
-          <FaLinkedin size={30} />
-        </a>
-        <a href="mailto:matthew.r.conrad1@gmail.com">
-          <FaEnvelope size={30} />
-        </a>
+        <span>© {new Date().getFullYear()} Matthew R. Conrad</span>
       </footer>
     </div>
   );

@@ -1,26 +1,36 @@
 // src/App.js
-import React, { useState } from 'react';
-import LandingPage from './LandingPage';
-import HomePage from './HomePage';
+import React from 'react';
+import '@fontsource/ibm-plex-mono';
+import { ThemeProvider } from './components/ThemeContext';
+import MathBackground from './components/MathBackground';
+import HeroSection from './components/HeroSection';
+import ProjectsSection from './components/ProjectsSection';
+import PublicationsSection from './components/PublicationsSection';
+import CertsAwardsSection from './components/CertsAwardsSection';
+import TimelineSection from './components/TimelineSection';
+import WhyHireMeSection from './components/WhyHireMeSection';
+import ContactSection from './components/ContactSection';
+import ThemeToggle from './components/ThemeToggle';
 import './App.css';
 
 function App() {
-  const [name, setName] = useState('');
-  const [isSubmitted, setIsSubmitted] = useState(false);
-
-  const handleNameSubmit = (name) => {
-    setName(name);
-    setIsSubmitted(true);
-  };
-
   return (
-    <div className="App">
-      {!isSubmitted ? (
-        <LandingPage onSubmitName={handleNameSubmit} />
-      ) : (
-        <HomePage name={name} />
-      )}
-    </div>
+    <ThemeProvider>
+      <>
+        <a href="#main-content" className="skip-link">Skip to main content</a>
+        <div className="App">
+          <ThemeToggle />
+          <MathBackground />
+          <HeroSection />
+          <ProjectsSection />
+          <PublicationsSection />
+          <TimelineSection />
+          <CertsAwardsSection />
+          <WhyHireMeSection />
+          <ContactSection />
+        </div>
+      </>
+    </ThemeProvider>
   );
 }
 
