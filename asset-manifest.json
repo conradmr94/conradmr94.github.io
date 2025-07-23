@@ -1,15 +1,25 @@
 {
   "files": {
-    "main.css": "/static/css/main.8e079a7c.css",
-    "main.js": "/static/js/main.dc2ce116.js",
+    "main.css": "/static/css/main.0ac2068c.css",
+    "main.js": "/static/js/main.b4fae639.js",
     "static/js/453.f6c5a75e.chunk.js": "/static/js/453.f6c5a75e.chunk.js",
+    "static/media/ibm-plex-mono-latin-400-normal.woff2": "/static/media/ibm-plex-mono-latin-400-normal.57685f70bce71bc2281d.woff2",
+    "static/media/ibm-plex-mono-latin-ext-400-normal.woff2": "/static/media/ibm-plex-mono-latin-ext-400-normal.4eb454f797fc14173977.woff2",
+    "static/media/ibm-plex-mono-latin-400-normal.woff": "/static/media/ibm-plex-mono-latin-400-normal.a249eaef7f811a5b3ef8.woff",
+    "static/media/ibm-plex-mono-latin-ext-400-normal.woff": "/static/media/ibm-plex-mono-latin-ext-400-normal.9e8e59cd24901250b690.woff",
+    "static/media/ibm-plex-mono-cyrillic-400-normal.woff2": "/static/media/ibm-plex-mono-cyrillic-400-normal.6ac19c59b273fe60dfcc.woff2",
+    "static/media/ibm-plex-mono-cyrillic-400-normal.woff": "/static/media/ibm-plex-mono-cyrillic-400-normal.c348deac43fa5748edea.woff",
+    "static/media/ibm-plex-mono-cyrillic-ext-400-normal.woff2": "/static/media/ibm-plex-mono-cyrillic-ext-400-normal.bbad4d1918b96229653b.woff2",
+    "static/media/ibm-plex-mono-vietnamese-400-normal.woff2": "/static/media/ibm-plex-mono-vietnamese-400-normal.530da8a08402532b9ded.woff2",
+    "static/media/ibm-plex-mono-cyrillic-ext-400-normal.woff": "/static/media/ibm-plex-mono-cyrillic-ext-400-normal.18dd695e5b1103c22279.woff",
+    "static/media/ibm-plex-mono-vietnamese-400-normal.woff": "/static/media/ibm-plex-mono-vietnamese-400-normal.442fb799b2a313edbc10.woff",
     "index.html": "/index.html",
-    "main.8e079a7c.css.map": "/static/css/main.8e079a7c.css.map",
-    "main.dc2ce116.js.map": "/static/js/main.dc2ce116.js.map",
+    "main.0ac2068c.css.map": "/static/css/main.0ac2068c.css.map",
+    "main.b4fae639.js.map": "/static/js/main.b4fae639.js.map",
     "453.f6c5a75e.chunk.js.map": "/static/js/453.f6c5a75e.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.8e079a7c.css",
-    "static/js/main.dc2ce116.js"
+    "static/css/main.0ac2068c.css",
+    "static/js/main.b4fae639.js"
   ]
 }
