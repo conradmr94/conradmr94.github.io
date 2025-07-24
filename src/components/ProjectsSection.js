@@ -13,6 +13,15 @@ const projects = [
     link: '',
   },
   {
+    title: 'Multithreaded Stock Trading Engine',
+    summary: 'A high-performance trading engine supporting concurrent order processing and real-time matching.',
+    details: 'Implements multithreaded order book management, atomic trade execution, and low-latency matching logic. Designed for scalability and robust error handling in simulated and live environments.',
+    tech: 'C++20, Multithreading, Concurrency, STL',
+    tags: ['Finance', 'C++', 'Concurrency'],
+    codeSnippet: `std::thread t1(&OrderBook::processOrders, &orderBook);\nstd::thread t2(&OrderBook::matchOrders, &orderBook);\nt1.join();\nt2.join();`,
+    link: 'https://github.com/conradmr94/multithreaded_stock_trading',
+  },
+  {
     title: 'Stock Price Movement Prediction',
     summary: 'Classification models using SVMs and KRR, with unsupervised clustering and PCA.',
     details: 'Achieved F1-score of 0.80, clustered equities into 30+ segments, and performed advanced time series analysis.',
