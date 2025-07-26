@@ -4,6 +4,7 @@ import '@fontsource/ibm-plex-mono';
 import { ThemeProvider } from './components/ThemeContext';
 import MathBackground from './components/MathBackground';
 import HeroSection from './components/HeroSection';
+import TradingGame from './components/TradingGame';
 import ProjectsSection from './components/ProjectsSection';
 import PublicationsSection from './components/PublicationsSection';
 import CertsAwardsSection from './components/CertsAwardsSection';
@@ -22,6 +23,7 @@ function App() {
           <ThemeToggle />
           <MathBackground />
           <HeroSection />
+          <TradingGame />
           <ProjectsSection />
           <PublicationsSection />
           <TimelineSection />
