@@ -1,161 +1,147 @@
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import React from 'react';
 
 const projects = [
   {
-    title: 'Machine Learning-Driven Trading Simulator',
-    summary: 'A portfolio backtester and strategy learner for equity trading with Q-Learning and ensemble methods.',
-    details: 'Simulates realistic trading constraints, outperforms benchmarks, and analyzes market impact vs. trade frequency.',
-    tech: 'Python, Ensemble Learners, Pandas, NumPy',
-    tags: ['Finance', 'ML', 'Python'],
-    image: process.env.PUBLIC_URL + '/assets/ml_based_trading_simulator.png',
-    codeSnippet: `# Q-Learning update\nQ[state, action] += alpha * (reward + gamma * max(Q[next_state]) - Q[state, action])`,
-    link: '',
+    number: '01',
+    title: 'Deva',
+    href: 'https://devseccode.com',
+    stack: 'Python · FastAPI · OpenGrep · Docker · GCP',
+    summary: 'A local-first AI security platform with one scanning engine serving IDE, CLI, CI, extension, and MCP clients.',
+    contribution: 'I architected and built the shared scanning engine, authenticated API, cross-platform release pipeline, and cloud control plane.',
+    details: [
+      'Static analysis, dependency review, compliance mapping, and assisted remediation in a unified workflow.',
+      'Secure cross-platform delivery with integrity checks and rollback support.',
+      'Runs with managed, local, or user-provided models.',
+    ],
+    image: '/assets/project-deva.jpg',
+    imageWidth: 1400,
+    imageHeight: 722,
+    imageAlt: 'Deva security dashboard visualizing scan findings by severity and file.',
+    size: 'compact',
   },
   {
-    title: 'Multithreaded Stock Trading Engine',
-    summary: 'A high-performance trading engine supporting concurrent order processing and real-time matching.',
-    details: 'Implements multithreaded order book management, atomic trade execution, and low-latency matching logic. Designed for scalability and robust error handling in simulated and live environments.',
-    tech: 'C++20, Multithreading, Concurrency, STL',
-    tags: ['Finance', 'C++', 'Concurrency'],
-    codeSnippet: `std::thread t1(&OrderBook::processOrders, &orderBook);\nstd::thread t2(&OrderBook::matchOrders, &orderBook);\nt1.join();\nt2.join();`,
-    link: 'https://github.com/conradmr94/multithreaded_stock_trading',
+    number: '02',
+    title: 'Zenblis',
+    href: 'https://zenblis.com',
+    stack: 'TypeScript · React · Firebase · Stripe · Google Maps',
+    summary: 'A two-sided senior-living marketplace paired with a multi-tenant operating platform for community teams.',
+    contribution: 'I built and launched the marketplace and operator platform, including discovery, CRM, subscriptions, publishing, and administrative systems.',
+    details: [
+      'Marketplace discovery, lead capture, CRM, email, analytics, listings, subscriptions, and scheduling.',
+      'Role-aware administration and publishing tools with structured SEO and automated quality coverage.',
+    ],
+    image: '/assets/project-zenblis.jpg',
+    imageWidth: 1400,
+    imageHeight: 510,
+    imageAlt: 'Zenblis homepage with senior-living search and a map of community results.',
+    size: 'wide',
   },
   {
-    title: 'Stock Price Movement Prediction',
-    summary: 'Classification models using SVMs and KRR, with unsupervised clustering and PCA.',
-    details: 'Achieved F1-score of 0.80, clustered equities into 30+ segments, and performed advanced time series analysis.',
-    tech: 'SVM, KRR, PCA',
-    tags: ['Finance', 'ML', 'Python'],
-    image: process.env.PUBLIC_URL + '/assets/stock_price_movement_prediction.png',
-    codeSnippet: `from sklearn.svm import SVC\nmodel = SVC(kernel=\"rbf\")\nmodel.fit(X_train, y_train)`,
-    link: '',
-  },
-  {
-    title: 'Q-Learning/Dyna-Q Agent',
-    summary: 'Tabular Q-learning agent with Dyna-Q planning for RL trading strategies.',
-    details: 'Implements Bellman update rules, stochastic exploration, and synthetic experience replay.',
-    tech: 'Python, RL, Q-Learning, Dyna-Q',
-    tags: ['ML', 'RL', 'Python'],
-    image: process.env.PUBLIC_URL + '/assets/qlearning.png',
-    codeSnippet: `# Dyna-Q planning\nfor _ in range(n):\n    s, a, r, s_ = sample_experience()\n    Q[s, a] += alpha * (r + gamma * max(Q[s_]) - Q[s, a])`,
-    link: '',
-  },
-  {
-    title: 'Market Simulator',
-    summary: 'Realistic market simulator for equity portfolio performance.',
-    details: 'Implements cash management, transaction costs, and market impact. Vectorized pipeline for portfolio value and returns.',
-    tech: 'Python, Pandas, NumPy',
-    tags: ['Finance', 'Simulation', 'Python'],
-    image: process.env.PUBLIC_URL + '/assets/market_simulator.png',
-    codeSnippet: `portfolio_value = cash + (holdings * prices).sum(axis=1)`,
-    link: '',
-  },
-  {
-    title: 'Martingale Strategy Simulator',
-    summary: 'Monte Carlo simulations of the Martingale betting strategy under various constraints.',
-    details: 'Analyzed risk, variance, and success rates across 1,000+ episodes using statistical metrics and graphical summaries.',
-    tech: 'Python, NumPy, Matplotlib',
-    tags: ['Simulation', 'Python'],
-    image: process.env.PUBLIC_URL + '/assets/martingale.png',
-    codeSnippet: `for i in range(n_trials):\n    bankroll = initial\n    while bankroll > 0: ...`,
-    link: '',
-  },
-  {
-    title: 'Example-Based Machine Learning Explanations',
-    summary: 'Explaining CNNs by showing users example inputs/outputs. Pending submission/approval.',
-    details: 'Developed question-generation algorithms and pipelines for contrastive explanations in ML.',
-    tech: 'Python, Keras, Django',
-    tags: ['ML', 'Explainability', 'Python'],
-    codeSnippet: `# SHAP explanation\nshap_values = explainer.shap_values(X)`,
-    link: '',
-  },
-  {
-    title: 'Order Book',
-    summary: 'A lightweight C++ implementation of an order book system supporting basic order types and matching logic.',
-    details: 'Simulates core trading mechanisms: placing orders, cancelling, and executing trades.',
-    tech: 'C++17',
-    tags: ['Finance', 'C++'],
-    codeSnippet: `struct Order {\n  double price;\n  int quantity;\n};`,
-    link: 'https://github.com/conradmr94/orderbook',
-  },
-  {
-    title: 'Trading Engine Server',
-    summary: 'A skeleton of a stock trading engine server, written in C# using .NET.',
-    details: 'Implements order matching and trade execution logic.',
-    tech: 'C#, .NET',
-    tags: ['Finance', 'C#', '.NET'],
-    codeSnippet: `public class Order {\n  public decimal Price { get; set; }\n  public int Quantity { get; set; }\n}`,
-    link: 'https://github.com/conradmr94/TradingEngineServer',
-  },
-  {
-    title: 'Stock Portfolio Calculator',
-    summary: 'A calculator app to generate buy lists and portfolio distributions given a target purchase volume.',
-    details: 'Python/Flask app for portfolio allocation and buy list generation.',
-    tech: 'Python, Flask, Pandas',
-    tags: ['Finance', 'Python', 'Flask'],
-    codeSnippet: `def allocate_portfolio(total, weights):\n    return {k: total*v for k, v in weights.items()}`,
-    link: 'https://github.com/conradmr94/portfolio_calculator',
+    number: '03',
+    title: 'Yammoing',
+    href: 'https://yammoing.com',
+    appStoreHref: 'https://apps.apple.com/us/app/yammoing/id6757343455',
+    stack: 'Swift · SwiftUI · TypeScript · Firebase · Gemini',
+    summary: 'A full-stack iOS health and nutrition platform combining barcode scanning, multimodal AI, HealthKit, and subscriptions.',
+    contribution: 'I architected and shipped the iOS application and supporting cloud services, including HealthKit, subscriptions, authentication, and multi-provider data integrations.',
+    details: [
+      'Barcode, label, and meal-photo analysis with nutrition and ingredient guidance.',
+      'HealthKit integration, subscriptions, and privacy-conscious cloud synchronization.',
+      'Resilient data access across multiple food, venue, and AI services.',
+    ],
+    image: '/assets/project-yammoing.jpg',
+    imageWidth: 1400,
+    imageHeight: 695,
+    imageAlt: 'Yammoing product page showing personalized health scoring on an iPhone.',
+    size: 'full',
   },
 ];
 
-const allTags = Array.from(new Set(projects.flatMap(p => p.tags)));
+const otherProjects = [
+  {
+    title: 'motive.',
+    stack: 'Swift · AlarmKit · WidgetKit',
+    summary: 'A motivational iOS app with scheduled prompts, Live Activities, and a fully on-device experience.',
+    href: 'https://apps.apple.com/us/app/motive/id6761436873',
+  },
+  {
+    title: 'BreatheMindful',
+    stack: 'Swift · HealthKit · AVFoundation',
+    summary: 'Guided breathing, focus sessions, sleep tracking, and a spatial ambient-sound mixer.',
+    href: 'https://apps.apple.com/eg/app/breathemindful/id6757343368',
+  },
+  {
+    title: 'Lovocado',
+    stack: 'Swift · Firebase · HealthKit',
+    summary: 'A private couples app for shared plans, memories, messaging, and wellness data, designed to work offline first.',
+    href: 'https://apps.apple.com/us/app/lovocado/id6757644902',
+  },
+];
 
-const ProjectsSection = () => {
-  const [open, setOpen] = useState(null);
-  const [filter, setFilter] = useState('All');
-  const filtered = filter === 'All' ? projects : projects.filter(p => p.tags.includes(filter));
+const ProjectsSection = () => (
+  <section id="work" className="content-section work-section" aria-labelledby="work-title">
+    <div className="section-rule-heading">
+      <h2 id="work-title">Selected work</h2><span />
+    </div>
 
-  return (
-    <section id="projects" style={{width: '100%', padding: '3rem 0', zIndex: 1, position: 'relative'}}>
-      <h2 style={{textAlign: 'center', color: 'var(--accent)', fontSize: '2rem', marginBottom: '2rem'}}>Projects</h2>
-      <div style={{display: 'flex', justifyContent: 'center', gap: '1rem', marginBottom: '2rem', flexWrap: 'wrap'}}>
-        <button onClick={() => setFilter('All')} style={{background: filter==='All' ? 'var(--accent)' : 'var(--muted)', color: filter==='All' ? '#fff' : 'var(--accent)', border: 'none', borderRadius: 6, padding: '0.5em 1.2em', cursor: 'pointer', fontWeight: 600}}>All</button>
-        {allTags.map(tag => (
-          <button key={tag} onClick={() => setFilter(tag)} style={{background: filter===tag ? 'var(--accent)' : 'var(--muted)', color: filter===tag ? '#fff' : 'var(--accent)', border: 'none', borderRadius: 6, padding: '0.5em 1.2em', cursor: 'pointer', fontWeight: 600}}>{tag}</button>
-        ))}
+    <div className="featured-projects">
+      {projects.map(project => (
+        <article key={project.title} className={`project project-${project.size}`}>
+          <div className="project-kicker">
+            <span>{project.number}</span><span>{project.stack}</span>
+          </div>
+          <h3>{project.title}</h3>
+          <p className="project-summary">{project.summary}</p>
+          <p className="project-contribution">{project.contribution}</p>
+          <ul className="project-details">
+            {project.details.map(detail => <li key={detail}>{detail}</li>)}
+          </ul>
+          <div className={`project-evidence project-evidence-${project.title.toLowerCase()}`}>
+            <img
+              src={project.image}
+              alt={project.imageAlt}
+              width={project.imageWidth}
+              height={project.imageHeight}
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <div className="project-actions">
+            <a className="project-link" href={project.href} target="_blank" rel="noopener noreferrer">
+              Visit {project.title} <span aria-hidden="true">↗</span>
+            </a>
+            {project.appStoreHref && (
+              <a className="project-link" href={project.appStoreHref} target="_blank" rel="noopener noreferrer">
+                {project.title} on the App Store <span aria-hidden="true">↗</span>
+              </a>
+            )}
+          </div>
+        </article>
+      ))}
+    </div>
+
+    <article className="more-projects">
+      <div className="more-projects-intro">
+        <span className="project-kicker">04 · Additional releases</span>
+        <h3>More iOS work</h3>
+        <p>Three additional apps designed, built, and released end to end.</p>
       </div>
-      <div style={{display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '2rem'}}>
-        {filtered.map((proj, idx) => (
-          <motion.div
-            key={proj.title}
-            layout
-            initial={{borderRadius: 16}}
-            style={{background: 'var(--panel)', boxShadow: '0 2px 12px rgba(94,124,60,0.08)', borderRadius: 16, width: 340, cursor: 'pointer', position: 'relative', border: open === idx ? '2px solid var(--accent)' : 'none'}}
-            onClick={() => setOpen(open === idx ? null : idx)}
-            whileHover={{scale: 1.03}}
-            transition={{type: 'spring', stiffness: 300, damping: 20}}
-          >
-            <div style={{padding: '1.2rem 1.2rem 0.5rem 1.2rem', display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
-              {proj.image && <img src={proj.image} alt={proj.title + ' diagram'} style={{width: 80, height: 54, marginBottom: 12, filter: 'var(--svg-filter, none)'}} />}
-              <h3 style={{margin: 0, color: 'var(--accent2)', textAlign: 'center'}}>{proj.title}</h3>
-              <p style={{color: 'var(--text-muted)', fontSize: '1.05rem', textAlign: 'center'}}>{proj.summary}</p>
-              <span style={{fontSize: '0.95rem', color: 'var(--accent)'}}>{proj.tech}</span>
-              <div style={{marginTop: 8, display: 'flex', gap: 6}}>
-                {proj.tags.map(tag => <span key={tag} style={{background: 'var(--muted)', color: 'var(--accent)', borderRadius: 4, padding: '2px 8px', fontSize: '0.85em'}}>{tag}</span>)}
+      <ul className="more-project-list">
+        {otherProjects.map(project => (
+          <li key={project.title}>
+            <div>
+              <div className="more-project-heading">
+                <h4>{project.title}</h4>
+                <span>{project.stack}</span>
               </div>
-              {proj.link && <a href={proj.link} target="_blank" rel="noopener noreferrer" style={{marginTop: 8, color: 'var(--accent)', fontWeight: 600, textDecoration: 'underline'}}>View Code</a>}
+              <p>{project.summary}</p>
             </div>
-            <AnimatePresence>
-              {open === idx && (
-                <motion.div
-                  initial={{opacity: 0, y: 20}}
-                  animate={{opacity: 1, y: 0}}
-                  exit={{opacity: 0, y: 20}}
-                  style={{padding: '1.2rem', borderTop: '1px solid var(--muted)', background: 'var(--panel-alt)', borderRadius: '0 0 16px 16px'}}
-                >
-                  <p style={{color: 'var(--text-main)', margin: 0, marginBottom: 12}}>{proj.details}</p>
-                  <pre style={{background: 'var(--muted)', color: 'var(--text-main)', borderRadius: 6, padding: '0.8em', fontSize: '0.98em', overflowX: 'auto'}}>
-                    {proj.codeSnippet}
-                  </pre>
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </motion.div>
+            <a href={project.href} target="_blank" rel="noopener noreferrer">View on the App Store <span aria-hidden="true">↗</span></a>
+          </li>
         ))}
-      </div>
-    </section>
-  );
-};
+      </ul>
+    </article>
+  </section>
+);
 
-export default ProjectsSection; 
+export default ProjectsSection;

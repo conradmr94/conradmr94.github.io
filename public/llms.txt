@@ -1,0 +1,32 @@
+# Matthew R. Conrad
+
+> Matthew R. Conrad is a software engineer and systems architect who designs and builds secure software, large-scale low-latency systems, developer tooling, cloud infrastructure, and applied machine-learning products.
+
+Matthew is a Software Development Engineer II at Amazon Web Services. His prior work includes large-scale, high-availability datacenter architecture at Northrop Grumman; machine-learning interpretability research at the University of Michigan; secure trading infrastructure; and counterintelligence, cyber operations, and network operations in the United States Marine Corps.
+
+## Selected work
+
+- [Deva](https://devseccode.com/): A local-first AI security platform with a shared scanning engine serving IDE, CLI, CI, extension, and MCP clients. Matthew architected and built the scanning engine, authenticated API, cross-platform release pipeline, and cloud control plane.
+- [Zenblis](https://zenblis.com/): A senior-living marketplace and multi-tenant operating platform. Matthew built and launched the marketplace and operator platform, including discovery, CRM, subscriptions, publishing, and administrative systems.
+- [Yammoing](https://yammoing.com/): An iOS health and nutrition platform combining barcode scanning, multimodal AI, HealthKit, and subscriptions. Matthew architected and shipped the iOS application and supporting cloud services.
+- [Yammoing on the App Store](https://apps.apple.com/us/app/yammoing/id6757343455)
+
+## Research
+
+- [Interpretability Gone Bad](https://doi.org/10.1145/3637354): Peer-reviewed research on bounded rationality and how practitioners understand machine-learning explanations, published in Proceedings of the ACM on Human-Computer Interaction in 2024.
+- [Download the paper](https://conradmr94.github.io/Interpretability_Gone_Bad.pdf)
+
+## Credentials
+
+- Georgia Institute of Technology: Master of Science in Computer Science, machine learning specialization, in progress.
+- University of Michigan: Bachelor of Science in Computer Science, 2024.
+- CompTIA Security+ and A+, active through September 2028.
+- Active United States security clearance.
+
+## Profiles and contact
+
+- [Portfolio](https://conradmr94.github.io/)
+- [GitHub](https://github.com/conradmr94)
+- [LinkedIn](https://www.linkedin.com/in/matthew-r-conrad)
+- [Résumé](https://conradmr94.github.io/resume.pdf)
+- Email: matthew.r.conrad1@gmail.com
