@@ -25,6 +25,7 @@ test('renders the portfolio identity and featured work', () => {
   expect(screen.getByRole('heading', { name: 'More iOS work' })).toBeInTheDocument();
   expect(screen.getByText(/georgia tech, mscs · university of michigan, bscs/i)).toBeInTheDocument();
   expect(screen.getByText(/software development engineer ii at amazon web services/i)).toBeInTheDocument();
+  expect(screen.getByText('TS/SCI')).toBeInTheDocument();
   expect(screen.getByText(/architected and built the shared scanning engine/i)).toBeInTheDocument();
   expect(screen.getByText(/built and launched the marketplace and operator platform/i)).toBeInTheDocument();
   expect(screen.getByText(/architected and shipped the ios application/i)).toBeInTheDocument();
