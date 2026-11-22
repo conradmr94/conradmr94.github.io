@@ -35,7 +35,7 @@ const HeroSection = () => (
       </div>
       <div>
         <dt>Clearance</dt>
-        <dd>Active U.S. security clearance</dd>
+        <dd>TS/SCI</dd>
       </div>
     </dl>
   </section>
